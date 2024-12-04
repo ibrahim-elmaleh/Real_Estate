@@ -1,0 +1,82 @@
+<odoo>
+    <record id="view_real_estate_contract_tree" model="ir.ui.view">
+        <field name="name">real.estate.contract.tree</field>
+        <field name="model">real.estate.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="property_id"/>
+                <field name="tenant_name"/>
+                <field name="rent_amount"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_real_estate_contract_form" model="ir.ui.view">
+        <field name="name">real.estate.contract.form</field>
+        <field name="model">real.estate.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="property_id"/>
+                        <field name="tenant_name"/>
+                        <field name="rent_amount"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                    <notebook>
+                         <page string="Sub Project">
+                        <group>  <field name="sub_project_name"/>
+                        </group>
+                         </page>
+                        <page string="Properties">
+                        <group>
+                            <field name="property_details"/>
+                        </group>
+                        </page>
+                        <page string="Floor Plans">
+                            <group>
+                                <field name="floor_plan_image1" widget="image" class="img-thumbnail" options="{'size': [780, 780]}"/>
+                            </group>
+                            <group>
+                                <field name="floor_plan_image2" widget="image" class="img-thumbnail" options="{'size': [780, 780]}"/>
+                            </group>
+                        </page>
+                        <page string="Documents">
+                            <field name="document_ids">
+                                <tree string="Documents">
+                                    <field name="name"/>
+                                    <field name="file" widget="binary"/>/>
+                                </tree>
+                                <form string="Document Form">
+                                <group>
+                                <field name="name"/>
+                                <field name="file"/>
+                                </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Additional Information">
+                            <group>
+                                <field name="additional_info"/>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <group>
+                                <field name="note"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

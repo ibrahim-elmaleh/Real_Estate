@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_worksite_management_tree" model="ir.ui.view">
+        <field name="name">worksite.management.tree</field>
+        <field name="model">worksite.management</field>
+        <field name="arch" type="xml">
+            <tree string="Worksite Management">
+                <field name="name"/>
+                <field name="project_type"/>
+                <field name="region_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_worksite_management_form" model="ir.ui.view">
+        <field name="name">worksite.management.form</field>
+        <field name="model">worksite.management</field>
+        <field name="arch" type="xml">
+            <form string="Worksite Management">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="project_type"/>
+                        <field name="region_id"/>
+           <field name="number_of_rooms" invisible="project_type != 'tower'"/>
+<field name="balcony" invisible="project_type != 'tower'"/>
+<field name="available_area" invisible="project_type != 'open_plots'"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_worksite_management" model="ir.actions.act_window">
+        <field name="name">Worksite Management</field>
+        <field name="res_model">worksite.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

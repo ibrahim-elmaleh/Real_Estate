@@ -1,0 +1,54 @@
+<odoo>
+    <!-- عرض قائمة المشاريع -->
+    <record id="view_real_estate_project_tree" model="ir.ui.view">
+        <field name="name">real.estate.project.tree</field>
+        <field name="model">real.estate.project</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="region_id"/>
+                <field name="project_type"/>
+                <field name="worksite"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- عرض نموذج المشروع -->
+    <record id="view_real_estate_project_form" model="ir.ui.view">
+        <field name="name">real.estate.project.form</field>
+        <field name="model">real.estate.project</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="region_id"/>
+                        <field name="project_type"/>
+                        <field name="worksite"/>
+                        <field name="properties"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+      <!-- عرض قائمة المشاريع -->
+    <record id="view_real_estate_project_tree" model="ir.ui.view">
+        <field name="name">real.estate.project.tree</field>
+        <field name="model">real.estate.project</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="region_id"/> <!-- حقل المنطقة -->
+                <field name="project_type"/>
+                <field name="worksite"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- إجراء نافذة عرض المشروع -->
+    <record id="action_real_estate_project" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">real.estate.project</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

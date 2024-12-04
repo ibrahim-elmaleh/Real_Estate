@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+    <odoo>
+    <record id="view_real_estate_dashboard_buttons" model="ir.ui.view">
+        <field name="name">real.estate.dashboard.buttons</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="availability"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_record">
+                            <strong><field name="name"/></strong>
+                            <div><field name="price"/> USD</div>
+                            <div>Status: <field name="availability"/></div>
+                            <footer>
+                            <button type="object" name="action_create_rental_contract" class="btn btn-primary">
+                            Create Rental Contract
+                            </button>
+                            <button type="object" name="action_create_invoice" class="btn btn-secondary">
+                            Generate Invoice
+                            </button>
+                            </footer>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
+
+
+
+    </data>
+</odoo>

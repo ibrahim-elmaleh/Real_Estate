@@ -1,0 +1,21 @@
+{
+    'name': 'Real Estate Dashboard',
+    'version': '1.0',
+    'summary': 'Advanced real estate management with dashboards and project tools',
+    'description': 'Manage real estate projects, properties, bookings, and contracts effectively.',
+    'author': 'Your Name',
+    'depends': ['base', 'contacts', 'base_setup', 'sale', 'account', 'project', 'website'],
+    'data': [
+        'views/dashboard_view.xml',
+        'security/ir.model.access.csv',
+        'views/region_views.xml',
+        'views/worksite_management.xml',
+        'views/menu_items.xml',
+        'views/contract_view.xml',
+        'views/property.xml',
+        'views/project_view.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

@@ -1,0 +1,104 @@
+<odoo>
+    <!-- القائمة الرئيسية للعقارات -->
+    <menuitem id="menu_real_estate_root" name="Real Estate"
+              sequence="1" groups="base.group_user"/>
+
+    <!-- تعريف الإجراء الخاص بالعقارات -->
+    <record id="action_real_estate_property" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">real.estate.property</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+    <!-- تعريف الإجراء الخاص بالعقود -->
+    <record id="action_real_estate_contract" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">real.estate.contract</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+    <!-- تعريف الإجراء الخاص بالمشاريع -->
+    <record id="action_real_estate_project" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">real.estate.project</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+    <!-- تعريف الإجراء الخاص بالمنطقة -->
+    <record id="action_region" model="ir.actions.act_window">
+        <field name="name">Regions</field>
+        <field name="res_model">region.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Manage regions for real estate projects.</field>
+    </record>
+
+        <!-- تعريف عنصر القائمة الذي يرتبط بإجراء طلبات الصيانة -->
+    <menuitem id="maintenance_request"
+              name="Maintenance"
+              parent="menu_real_estate_root"
+              action="action_maintenance_request"
+              sequence="16"/>
+<menuitem id="maintenance_equipment"
+          name="Repair Order"
+          parent="maintenance_request"
+          action="action_maintenance_equipment"
+          sequence="17"/>
+
+
+    <!-- القائمة الفرعية لإدارة المشاريع -->
+    <menuitem id="menu_real_estate_project" name="Projects"
+              parent="menu_real_estate_root"
+              sequence="10"/>
+    <!-- قائمة المنطقة (Region) تحت Project -->
+    <menuitem id="menu_region_management"
+              name="Region"
+              parent="menu_real_estate_project"
+              action="action_region"
+              sequence="2" />
+        <menuitem id="menu_worksite_management" name="Worksite Management"
+              parent="menu_real_estate_project"
+              action="action_worksite_management"
+              sequence="33"/>
+    <menuitem id="real_estate_project" name="Project"
+              parent="menu_real_estate_project" action="action_real_estate_project"
+              sequence="11"/>
+
+
+
+    <!-- القائمة الفرعية لإدارة العقارات -->
+    <menuitem id="menu_real_estate_property" name="Properties"
+              parent="menu_real_estate_root" action="action_real_estate_property"
+              sequence="20"/>
+
+    <!-- القائمة الفرعية لإدارة العقود -->
+    <menuitem id="menu_real_estate_contract" name="Contracts"
+              parent="menu_real_estate_root" action="action_real_estate_contract"
+              sequence="30"/>
+
+    <record id="action_worksite_management" model="ir.actions.act_window">
+        <field name="name">Worksites</field>
+        <field name="res_model">worksite.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+<!-- تعريف الإجراء لطلبات الصيانة -->
+    <record id="action_maintenance_request" model="ir.actions.act_window">
+        <field name="name">Maintenance Request</field>
+        <field name="res_model">maintenance.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_maintenance_equipment" model="ir.actions.act_window">
+    <field name="name">Repair Order</field>
+    <field name="res_model">maintenance.equipment</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+
+
+
+</odoo>

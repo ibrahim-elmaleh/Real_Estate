@@ -1,0 +1,77 @@
+<odoo>
+    <record id="view_region_form" model="ir.ui.view">
+        <field name="name">region.management.form</field>
+        <field name="model">region.management</field>
+        <field name="arch" type="xml">
+            <form string="Region">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                        <field name="company_id"/>
+                    </group>
+                    <group string="Address">
+                        <field name="partner_id"/>
+                        <field name="address"/>
+<!--                        <field name="street"/>-->
+                        <field name="street2"/>
+                        <field name="country_id"/>
+                        <field name="state_id"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                    </group>
+                    <notebook>
+
+                        <page string="Geo Location">
+                                <header>
+                                    <button name="compute_coordinates" string="Compute based on address" type="object" class="oe_highlight"/>
+                                </header>
+                            <group>
+                                <field name="ref" widget="geolocation_map"/>
+                                <field name="latitude" readonly="1"/>
+                                <field name="longitude" readonly="1"/>
+<!--                                <button name="action_compute_geo" string="Compute based on address" type="object" class="oe_highlight"/>-->
+                            </group>
+                        </page>
+                        <page string="Sub-regions">
+                            <field name="child_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Projects">
+                            <field name="project_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="user_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_region_tree" model="ir.ui.view">
+        <field name="name">region.management.tree</field>
+        <field name="model">region.management</field>
+        <field name="arch" type="xml">
+            <tree string="Regions">
+                <field name="name"/>
+                <field name="parent_id"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_region" model="ir.actions.act_window">
+        <field name="name">Regions</field>
+        <field name="res_model">region.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+</odoo>
